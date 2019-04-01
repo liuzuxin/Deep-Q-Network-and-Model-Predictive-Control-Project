@@ -1,0 +1,40 @@
+model_config:
+    load_model: False # If set true, you must specify the model path, otherwise train a new model
+    model_path: "storage/exp_5.ckpt" # the path to load the model
+    n_states: 6 # environment states
+    n_actions: 1 # how many controls we need
+    n_hidden: 2 # hidden layer number
+    size_hidden: 128 # hidden layer size
+    use_cuda: True
+
+training_config:
+    n_epochs: 1000 # how many epoches to train the dynamic model
+    learning_rate: 0.0006 
+    batch_size: 64
+    save_model_flag: True
+    save_model_path: "storage/exp_5.ckpt" # the path to save the model
+    save_loss_fig: True
+    save_loss_fig_frequency: 100 # how many every epochs to save the loss figure 
+    exp_number: 5  # experiment number
+
+dataset_config:
+    load_flag: False 
+    load_path: "storage/data_exp_5.pkl"     
+    n_max_steps: 500 # maximum steps per episode
+    n_random_episodes: 30 # how many random episodes' data to fit the initial dynamic model
+    testset_split: 0.2 # testset's portion in the random dataset, the rest portion is the training set
+    n_mpc_episodes: 8 # how many episodes data sampled with the MPC controller
+    mpc_dataset_split: 0.5 # mpc dataset's portion in the training set
+    min_train_samples: 6000
+    n_mpc_itrs: 100 # the number to perform reinforce iteration
+    save_flag: True # set True if you want to save all the dataset
+    save_path: "storage/data_exp_5.pkl"
+
+# MPC controller configuration
+mpc_config:
+    horizon: 20 # how long of the horizon to predict
+    numb_bees: 8 # ABC optimization algorithm param: number of the bees
+    max_itrs: 40 # max iterations for the ABC optimization
+    gamma: 0.999 # reward discount coefficient
+    action_low: -5 # lower bound of the solution space
+    action_high: 5 # upper bound of the solution space

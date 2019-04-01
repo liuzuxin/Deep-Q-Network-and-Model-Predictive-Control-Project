@@ -1,0 +1,30 @@
+model_config:
+    load_model: False # If set true, you must specify the model path, otherwise train a new model
+    model_path: "storage/1000_5000_0.0001_2.ckpt" # the path to load the model
+    n_actions: 9
+    n_hidden: 1 # hidden layer number
+    size_hidden: 256 # hidden layer size
+    use_cuda: True
+
+training_config:
+    render: False # render the environment, set false to accelerate training. test.py does not need this parameter
+    n_episodes: 5000 # how many episodes to train
+    learning_rate: 0.00001 
+    batch_size: 50
+    gamma: 0.99
+    n_update_target: 6 # how many episodes to update the target network
+    memory_size: 100000 # replay memory buffer size
+    max_episode_step: 500 # maximum steps per episode
+    random_seed: 1234 # do not have to change this parameter
+    save_model_path: "storage/1000_5000_0.0001_2.ckpt" # the path to save the model
+    use_fix_epsilon: False # set true to use a fixed epsilon, otherwise the episilon will decay
+    fix_epsilon: 0.1 
+    epsilon_start: 0.9 # episilon decay start
+    epsilon_final: 0.05 # episilon decay end
+    epsilon_decay: 1000 # bandwidth
+    exp_number: 2  # experiment number
+    save_best: False
+
+
+
+
