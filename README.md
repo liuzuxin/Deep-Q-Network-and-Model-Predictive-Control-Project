@@ -3,7 +3,7 @@ Technische Universität Darmstadt winter semester 2018/2019
 
 Supervisor: Jan Peters, Riad Akrour
 
-This repository contains the PyTorch implementation of Deep Q-Network (DQN) and Model Predictive Control (MPC), 
+This repository contains the PyTorch implementation of Deep Q-Network and Model Predictive Control (MPC), 
 and the evaluation of them on the [quanser robot platform](https://git.ias.informatik.tu-darmstadt.de/quanser/clients).
 
 <img width="200" height="200" src="./Resources/figures/qube.gif"> <img width="200" height="200" src="./Resources/figures/stabe.gif">
